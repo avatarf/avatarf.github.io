@@ -12,22 +12,16 @@ This endpoint retrives the orders from the givven time frame (or the last x numb
 
 Path: `/ucs_eps/v1/<token>/orders/<object_id>`
 - `token` -- letters, numbers
-- `object_id` -- number | the object id from the rkeeper system. It has to be registered in the endpoint server too. eg.: 109150001
+- `object_id` -- number,the object id from the rkeeper system. It has to be registered in the endpoint server too. eg.: 109150001
 
 Accepted params:
-- `count` -- the max number of returned items (max 100!) | integer
-- `start_time` -- orders after this time | format 2018-07-29T14:44:30
-- `end_time` -- orders before this time | format 2018-07-30T14:44:30
+- `count` -- the max number of returned items (max 100!); integer
+- `start_time` -- orders after this time; format 2018-07-29T14:44:30
+- `end_time` -- orders before this time; format 2018-07-30T14:44:30
 If the `start_time` and the `end_time` is defined, the `count` is ignored.
 
-<details>
- <summary>Request example</summary>
- 
- `/ucs_eps/v1/mynicetoken1234345/orders/1999900001` 
-</details>
-
-<details>
- <summary>Example item json 👇</summary>
+Request example: `/ucs_eps/v1/mynicetoken1234345/orders/1999900001` 
+Example item json 👇
   
 ```
 {
@@ -122,29 +116,22 @@ If the `start_time` and the `end_time` is defined, the `count` is ignored.
   "vouchers": [ ]
 }
 ```
-</details>
-
 
 ### Get website orders
 
 Path: `/ucs_eps/v1/<token>/d_orders/<object_id>`
 - `token` -- letters, numbers
-- `object_id` -- number | the object id from the rkeeper system. It has to be registered in the endpoint server too. eg.: 109150001
+- `object_id` -- number; the object id from the rkeeper system. It has to be registered in the endpoint server too. eg.: 109150001
 
 Accepted params:
 - `count` -- the max number of returned items (max 100!), default value is 10 | integer
-- `start_time` -- orders after this time | format 2018-07-29T14:44:30
-- `end_time` -- orders before this time | format 2018-07-30T14:44:30
+- `start_time` -- orders after this time; format 2018-07-29T14:44:30
+- `end_time` -- orders before this time; format 2018-07-30T14:44:30
 If the `start_time` and the `end_time` is defined, the `count` is ignored.
 
-<details>
- <summary>Request example</summary>
- 
- `/ucs_eps/v1/mynicetoken1234345/d_orders/1999900001` 
-</details>
 
-<details>
- <summary>Example item json</summary>
+Request example: `/ucs_eps/v1/mynicetoken1234345/d_orders/1999900001` 
+Example item json:
 
 ```
 {
@@ -242,4 +229,3 @@ If the `start_time` and the `end_time` is defined, the `count` is ignored.
   "CreateTime": "2020-11-27T15:41:25"
 }
 ```
-</details>
