@@ -117,6 +117,11 @@ Example item json 👇
 }
 ```
 
+#### Netpincer market place
+
+If the order is a netpincer marketplace order, the endpint server automaticaly accepts the order. If an order is accepted, a new item is added to teh jason: `ucsStatus`. The `ucsStatus`'s value is `order_accepted` in this case.
+However, there is a POST endpoint on the server to change the order's status on the endpoint and on the netpincer as well. The accepted statuses are the following: 'order_accepted', 'order_rejected', 'order_picked_up'. Further details of this endpoint is in the [Update order status](#update-order-status) section.
+
 ### Get website orders
 
 Path: `/ucs_eps/v1/<token>/d_orders/<object_id>`
@@ -229,3 +234,17 @@ Example item json:
   "CreateTime": "2020-11-27T15:41:25"
 }
 ```
+
+### Update order status
+
+Path: `/ucs_eps/v1/<token>/order/status/update/<object_id>/<order_id>/<new_status>`
+Method: POST
+- `token` -- letters, numbers
+- `object_id` -- number; the object id from the rkeeper system. It has to be registered in the endpoint server too. eg.: 109150001
+- `order_id` -- number
+- `new_status` -- string; accepted statusese: 'order_accepted', 'order_rejected', 'order_picked_up'
+
+**Return**
+
+200 with a json message on success.
+400 with a json message on failure.
